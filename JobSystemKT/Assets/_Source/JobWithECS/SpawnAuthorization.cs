@@ -24,9 +24,8 @@ namespace JobWithECS
             var spawner = GetEntity(TransformUsageFlags.None);
             var prefab = GetEntity(authoring.spawnPrefab, TransformUsageFlags.Dynamic | TransformUsageFlags.Renderable);
 
-            AddComponent(spawner, new Spawner { Prefab = prefab, Count = authoring.ObjectsCount, Offset = authoring.Offset });
+            AddComponent(spawner,
+                new Spawner { Prefab = prefab, Count = authoring.ObjectsCount, Offset = authoring.Offset });
         }
     }
-    
-    
 }
