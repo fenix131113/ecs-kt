@@ -8,20 +8,25 @@ namespace Project
     public class ProjectAuthorization : MonoBehaviour
     {
         [field: SerializeField] public float MoveSpeed { get; private set; }
-        [field: SerializeField] public float MinX { get; private set; }
-        [field: SerializeField] public float MaxX { get; private set; }
-        [field: SerializeField] public float MinY { get; private set; }
-        [field: SerializeField] public float MaxY { get; private set; }
+        [field: SerializeField] public float AffectDistance { get; private set; }
+        [field: SerializeField] public float HeatRate { get; private set; }
     }
 
-    public struct MoveSpeed : IComponentData
+    public struct UnitData : IComponentData
     {
-        public float Value;
+        public float Speed;
+        public float AffectDistance;
+        public float HeatRate;
     }
 
     public struct MoveTarget : IComponentData
     {
         public float3 Value;
+    }
+
+    public struct Temperature : IComponentData
+    {
+        public float Value;
     }
 
     public class MovementBaker : Baker<ProjectAuthorization>
@@ -30,8 +35,10 @@ namespace Project
         {
             var entity = GetEntity(TransformUsageFlags.Dynamic | TransformUsageFlags.Renderable);
 
-            AddComponent(entity, new MoveSpeed { Value = authoring.MoveSpeed });
+            AddComponent(entity,
+                new UnitData { Speed = authoring.MoveSpeed, AffectDistance = authoring.AffectDistance, HeatRate = authoring.HeatRate });
             AddComponent(entity, new MoveTarget());
+            AddComponent(entity, new Temperature { Value = 0 });
         }
     }
 }

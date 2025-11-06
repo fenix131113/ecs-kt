@@ -3,7 +3,6 @@ using Unity.Collections;
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
-using UnityEngine;
 using static Project.ProjectSpawnAuthorization;
 using Random = UnityEngine.Random;
 
@@ -15,7 +14,7 @@ namespace Project
         public struct SpawnedTag : IComponentData
         {
         }
-        
+
         public void OnUpdate(ref SystemState state)
         {
             if (!SystemAPI.HasSingleton<Spawner>())
@@ -40,7 +39,6 @@ namespace Project
                 var pos = LocalTransform.FromPosition(new float3(Random.Range(spawner.MinX, spawner.MaxX),
                     Random.Range(spawner.MinY, spawner.MaxY), 0));
 
-                Debug.Log(pos);
                 entityManager.SetComponentData(e, pos);
                 entityManager.SetComponentData(e, new MoveTarget
                 {
@@ -49,6 +47,8 @@ namespace Project
                         random.NextFloat(spawner.MinY, spawner.MaxY),
                         0f)
                 });
+
+                entityManager.SetComponentData(e, new Temperature { Value = random.NextFloat() });
             }
 
             entityManager.AddComponent<SpawnedTag>(spawnerEntity);

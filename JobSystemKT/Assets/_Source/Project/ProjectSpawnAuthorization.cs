@@ -7,7 +7,10 @@ namespace Project
     {
         [field: SerializeField] public GameObject Prefab { get; private set; }
         [field: SerializeField] public int Count { get; private set; }
-        [field: SerializeField] public ProjectAuthorization Authorization { get; private set; }
+        [field: SerializeField] public float MinX { get; private set; }
+        [field: SerializeField] public float MaxX { get; private set; }
+        [field: SerializeField] public float MinY { get; private set; }
+        [field: SerializeField] public float MaxY { get; private set; }
 
         public struct Spawner : IComponentData
         {
@@ -38,8 +41,8 @@ namespace Project
                 var prefab = GetEntity(authoring.Prefab, TransformUsageFlags.Dynamic | TransformUsageFlags.Renderable);
 
                 AddComponent(spawner,
-                    new Spawner(prefab, authoring.Count, authoring.Authorization.MinX, authoring.Authorization.MaxX,
-                        authoring.Authorization.MinY, authoring.Authorization.MaxY));
+                    new Spawner(prefab, authoring.Count, authoring.MinX, authoring.MaxX, authoring.MinY,
+                        authoring.MaxY));
             }
         }
     }

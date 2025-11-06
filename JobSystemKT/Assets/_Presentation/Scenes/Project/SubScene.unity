@@ -129,7 +129,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1760148648}
   - component: {fileID: 1760148647}
-  - component: {fileID: 1760148649}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -151,7 +150,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Project.ProjectSpawnAuthorization
   <Prefab>k__BackingField: {fileID: 879293829191702081, guid: e07bfda8aef30e7438081350fa762c08, type: 3}
   <Count>k__BackingField: 50
-  <Authorization>k__BackingField: {fileID: 1760148649}
+  <MinX>k__BackingField: -30
+  <MaxX>k__BackingField: 30
+  <MinY>k__BackingField: -15.5
+  <MaxY>k__BackingField: 17.5
 --- !u!4 &1760148648
 Transform:
   m_ObjectHideFlags: 0
@@ -167,23 +169,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1760148649
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1760148646}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc1b7e6968d14382b51b6f2bbd10f7e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Project.ProjectAuthorization
-  <MoveSpeed>k__BackingField: 1000
-  <MinX>k__BackingField: -30
-  <MaxX>k__BackingField: 30
-  <MinY>k__BackingField: -15.5
-  <MaxY>k__BackingField: 17.5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

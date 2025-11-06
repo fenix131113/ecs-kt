@@ -58,8 +58,8 @@ namespace JobSystem
         {
             _moveJobHandle.Complete();
         
-            if (_logJobHandle != default)
-                _logJobHandle.Complete();
+            // if (_logJobHandle != default)
+            //     _logJobHandle.Complete();
         }
 
         private void Setup()
